@@ -17,8 +17,8 @@ const Users = () => {
       const response = await axios.get(url);
       const { data: { message, jobs } } = response;
       if (message === 'Jobs read successfully!' && jobs.length > 0) {
-        const { id, business, role, skill, service } = jobs[0];
-        const jobData = { id, business, role, skill, service };
+        const { id, business_id, role, skill, service } = jobs[0];
+        const jobData = { id, business_id, role, skill, service };
         setFilteredJobData(jobData);
       } else {
         console.error("No Job found or error in fetching jobs.");
@@ -32,7 +32,7 @@ const Users = () => {
     <Box display="flex" flexDirection="row" p={2} gap={20}>
       <CssBaseline />
       <JobsFiller onSubmit={handleFilterSubmit} />
-      {filteredJobData && <Jobs jobData={filteredJobData} />} {/* Updated prop name to jobData */}
+      {filteredJobData && <Jobs jobData={filteredJobData} />}
     </Box>
   );
 };
