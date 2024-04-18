@@ -28,7 +28,7 @@ const Enterprise = () => {
         <Typography variant="h6" color="text.primary" sx={{ textAlign: 'center', mt: 2 }}>
             Welcome!<br /> Please tell what do you want to do:
         </Typography>
-        <Box sx={{ borderBottom: 1, textAlign: 'center', mt: 2 }}>
+          <Box sx={{ display: 'flex',flexDirection:'row', gap:5   , alignItems:'center', mt:2, ml:5}}>
             <Button component={Link} to="/searchapp" variant="contained" color="primary">
                 <Tab label="Search Applicants" />
             </Button>
