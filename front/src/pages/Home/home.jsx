@@ -29,7 +29,7 @@ function Home() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Container maxWidth="sm" style={{ marginTop: '50px',  minHeight: '66vh', textAlign: 'center' }}>
+      <Container maxWidth="sm" style={{ marginTop: '50px',  minHeight: '70vh', textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>
           Welcome to Byteworks
         </Typography>
