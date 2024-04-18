@@ -70,8 +70,26 @@ const JobsFiller = ({ onSubmit }) => {
                                     <Select labelId="role-label" 
                                     label="Role"
                                     {...field}>
-                                        <MenuItem value="Full-Stack">Full-Stack Engineer</MenuItem>
-                                        <MenuItem value="Back-End">Back-End</MenuItem>
+                                        <MenuItem value="Back-End">Back-End Developer</MenuItem>
+                                        <MenuItem value="Front-End">
+                                          Front-End Developer
+                                        </MenuItem>
+                                        <MenuItem value="Full-Stack">
+                                          Full-Stack Engineer
+                                        </MenuItem>
+                                        <MenuItem value="Machine Learning Engineer">
+                                          Machine Learning Engineer
+                                        </MenuItem>
+                                        <MenuItem value="Mobile Applications">
+                                          Mobile Applications Developer
+                                        </MenuItem>
+                                        <MenuItem value="QA Engineer">
+                                          QA Engineer (Selenium)
+                                        </MenuItem>
+                                        <MenuItem value="Cloud Engineer">
+                                          Cloud Engineer
+                                        </MenuItem>
+                                        <MenuItem value="Data Analyst">Data Analyst</MenuItem>
                                     </Select>
                                 )}
                             />
@@ -90,6 +108,10 @@ const JobsFiller = ({ onSubmit }) => {
                                     label="Skill"
                                     {...field}>
                                         <MenuItem value="JavaScript">JavaScript</MenuItem>
+                                        <MenuItem value="React">React</MenuItem>
+                                        <MenuItem value="Node.js">Node.js</MenuItem>
+                                        <MenuItem value="Python">Python</MenuItem>
+                                        <MenuItem value="Java">Java</MenuItem>
                                     </Select>
                                 )}
                             />
@@ -108,6 +130,7 @@ const JobsFiller = ({ onSubmit }) => {
                                     label="service"
                                     {...field}>
                                         <MenuItem value="Freelance">Freelance</MenuItem>
+                                        <MenuItem value="Contract">Contract</MenuItem>
                                     </Select>
                                 )}
                             />
