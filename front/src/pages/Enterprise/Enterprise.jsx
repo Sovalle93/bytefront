@@ -14,7 +14,7 @@ import Stack from '@mui/material/Stack';
 const Enterprise = () => {
 
   return (
-    <Container sx={{ display: 'flex', flexDirection: 'column', minHeight: '59vh', mt: 10 }} component="main" maxWidth="xs">
+    <Container sx={{ display: 'flex', flexDirection: 'column', minHeight: '65vh', mt: 10 }} component="main" maxWidth="xs">
     <CssBaseline />
     <Box sx={{ width: '100%' }}>
         <Stack justifyContent="center" direction="row" spacing={2} sx={{
