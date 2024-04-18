@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { ENDPOINT } from "../config/constans.js";
+import { getAuthTokenFromStorage } from '../utils/authUtils.js';
 
 export async function seeJobsService() {
     try {
         const response = await axios.get(ENDPOINT.enterprise, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getAuthTokenFromStorage()}`
             }
         });
 
