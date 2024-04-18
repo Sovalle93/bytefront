@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/old-path"
+  to = "/new-path"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Cache-Control = "public, max-age=3600"
+
+[context.production.environment]
+  API_URL = "https://bytekend.onrender.com/"
