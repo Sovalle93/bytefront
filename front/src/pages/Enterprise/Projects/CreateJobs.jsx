@@ -1,9 +1,8 @@
 import * as React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -17,6 +16,8 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import { Controller, useForm } from "react-hook-form";
 import { createJobsService } from "../../../services/CreateJobsService.jsx";
+import { fetchBusinessesService} from "../../../services/FetchBusinessService.jsx";
+
 
 function Copyright(props) {
     return (
@@ -40,7 +41,24 @@ const defaultTheme = createTheme();
 
 const createJobs = () => {
     const { handleSubmit, reset, control } = useForm();
-    const [business, setBusiness] = useState("");
+    const [businesses, setBusinesses] = useState([]);
+    const [selectedBusiness, setSelectedBusiness] = useState("");
+
+    useEffect(() => {
+        const fetchData = async (setBusinesses) => {
+            try {
+                const businessesData = await fetchBusinessesService();
+                setBusinesses(businessesData);
+                if (businessesData.length > 0) {
+                    setSelectedBusiness(businessesData[0]);
+                }
+            } catch (error) {
+                console.error('Error fetching businesses:', error);
+            }
+        };
+
+        fetchData(setBusinesses);
+    }, []);
 
     const onSubmit = async (data) => {
         try {
@@ -79,26 +97,18 @@ const createJobs = () => {
                         sx={{ mt: 3 }}
                     >
                         <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <FormControl fullWidth required>
-                                    <Controller
-                                        name="business"
-                                        control={control}
-                                        defaultValue=""
-                                        render={({ field }) => (
-                                            <TextField
-                                                {...field}
-                                                autoComplete="name"
-                                                label="Business"
-                                                required
-                                                fullWidth
-                                                id="userName"
-                                                autoFocus
-                                            />
-                                        )}
-                                    />
-                                </FormControl>
-                            </Grid>
+                        <Grid item xs={12}>
+                        <FormControl fullWidth required>
+                            <Controller
+                            name="business"
+                            control={control}
+                            defaultValue={selectedBusiness}
+                            render={({ field }) => (
+                                <Select {...field}>
+                                    <MenuItem value={selectedBusiness}>{selectedBusiness}</MenuItem>
+                                </Select>)}/>
+                        </FormControl>
+                        </Grid>
                             <Grid item xs={12}>
                                 <FormControl fullWidth required>
                                     <InputLabel id="role-label">Role</InputLabel>
@@ -206,3 +216,4 @@ const createJobs = () => {
 };
 
 export default createJobs
+
