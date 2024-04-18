@@ -18,7 +18,7 @@ const JobsCard = ({ job }) => {
     <Card variant="outlined" sx={{ maxWidth: 300 }}>
       <CardActionArea key={job.id}>
         <CardContent sx={{ bgcolor: lightBlue[500], textAlign:'center' }}>
-          <Typography variant="h6" color="text.primary">{job.business || "Business not available"}</Typography>
+          <Typography variant="h6" color="text.primary">{job.business_id || "Business not available"}</Typography>
           <Typography variant="body2" color="text.secondary" gutterBottom sx={{ textAlign: 'center' }}>
             Role: {job.role || "Role not available"}<br />
             Skill: {job.skill || "Skill not available"}<br/>
