@@ -180,7 +180,7 @@ const Business = () => {
                       label="Service"
                       {...field}>
                         <MenuItem value="Freelance">Freelance</MenuItem>
-                        <MenuItem value="Contractor">Contract</MenuItem>
+                        <MenuItem value="Contract">Contract</MenuItem>
                       </Select>
                     )}
                   />
